@@ -23,17 +23,25 @@ class Model
 		return $records;
 	}
 
-	public function save()
+	public function save($data)
 	{
+		$columns = [];
+		$values = [];
+		foreach ($data as $column => $value) {
+			$columns[] = $column;
+			$values[] = "'" . $value . "'";
+		}
+		$cString = implode(',', $columns);
+		$vString = implode(',', $values);
 		$query = "INSERT INTO {$this->table}
-					(name, email, phone, address, designation)
+					({$cString})
 				  VALUES
-				  	('{$this->name}','{$this->email}','{$this->phone}','{$this->address}','{$this->designation}')";
+				  	({$vString})";
 		$result = mysqli_query($this->connection, $query);
 		return $result;
 	}
 
-	public function update($id)
+	public function update($data, $id)
 	{
 		$query = "UPDATE {$this->table} SET
 					name 		= '{$this->name}',
