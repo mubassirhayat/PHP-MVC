@@ -1,5 +1,7 @@
 <?php
 
+define('BASE_URL', 'http://localhost/PHP-MVC/');
+
 /**
  * Constant for defining the Default Controller
  */
