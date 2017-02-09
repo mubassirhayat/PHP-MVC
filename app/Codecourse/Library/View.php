@@ -11,6 +11,6 @@ class View
 
 	public function loadView($viewPath)
 	{
-		include_once $viewPath;
+		include_once 'app/Codecourse/Views/' . $viewPath . '.php';
 	}
 }

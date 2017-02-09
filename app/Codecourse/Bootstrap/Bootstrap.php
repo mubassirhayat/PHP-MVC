@@ -42,6 +42,7 @@ class Bootstrap
 		{
 			$controllerName = DEFAULT_CONTROLLER_NAMESPACE . ERROR_CONTROLLER;
 			$actionName = ERROR_NOT_FOUND_ACTION;
+			$controller = new $controllerName();
 		}
 
 		$controller->{$actionName}();

@@ -3,7 +3,7 @@ namespace Codecourse\Controllers;
 
 use Codecourse\Library\Controller;
 
-class HomeController extends Controller
+class ContactController extends Controller
 {
 	
 	function __construct()
@@ -13,6 +13,6 @@ class HomeController extends Controller
 
 	public function index()
 	{
-		$this->view->loadView('home/index');
+		$this->view->loadView('contact/index');
 	}
 }
