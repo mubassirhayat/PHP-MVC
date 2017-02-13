@@ -9,7 +9,7 @@ class View
 
 	}
 
-	public function loadView($viewPath)
+	public function loadView($viewPath, $data = [])
 	{
 		include_once 'app/Codecourse/Views/' . $viewPath . '.php';
 	}

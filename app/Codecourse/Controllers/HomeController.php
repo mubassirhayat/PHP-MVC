@@ -2,6 +2,7 @@
 namespace Codecourse\Controllers;
 
 use Codecourse\Library\Controller;
+use Codecourse\Models\User;
 
 class HomeController extends Controller
 {
@@ -11,8 +12,15 @@ class HomeController extends Controller
 		parent::__construct();
 	}
 
-	public function index()
+	public function index($params)
 	{
-		$this->view->loadView('home/index');
+		var_dump($params);
+		$user = new User();
+		$users = $user->all();
+		$data = [
+			'title' => 'Home',
+			'users' => $users
+		];
+		$this->view->loadView('home/index', $data);
 	}
 }

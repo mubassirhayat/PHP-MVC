@@ -35,7 +35,6 @@ class Bootstrap
 			$controllerName = DEFAULT_CONTROLLER_NAMESPACE . ERROR_CONTROLLER;
 			$actionName = ERROR_NOT_FOUND_ACTION;
 		}
-		
 		$controller = new $controllerName();
 		
 		if ( ! method_exists($controller, $actionName) )
@@ -44,7 +43,14 @@ class Bootstrap
 			$actionName = ERROR_NOT_FOUND_ACTION;
 			$controller = new $controllerName();
 		}
+		array_shift($ca);
+		array_shift($ca);
 
-		$controller->{$actionName}();
+		if ( ! empty ( $ca ) ) {
+			$controller->{$actionName}($ca);
+		}
+		else {
+			$controller->{$actionName}();
+		}
 	}
 }

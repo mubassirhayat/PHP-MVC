@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>PHP-MVC</title>
+<title>PHP-MVC | <?php echo $data['title'] ?></title>
 
 <!-- Bootstrap core CSS -->
 <link href="<?php echo BASE_URL; ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
