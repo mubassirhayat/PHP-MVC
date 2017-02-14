@@ -3,6 +3,9 @@ namespace Codecourse\Controllers;
 
 use Codecourse\Library\Controller;
 use Codecourse\Models\User;
+use Codecourse\DesignPatterns\FactoryMethod\FactoryMethod;
+use Codecourse\DesignPatterns\FactoryMethod\PakistaniFactory;
+use Codecourse\DesignPatterns\FactoryMethod\GermanFactory;
 
 class HomeController extends Controller
 {
@@ -12,15 +15,13 @@ class HomeController extends Controller
 		parent::__construct();
 	}
 
-	public function index($params)
+	public function index($params = NULL)
 	{
-		var_dump($params);
-		$user = new User();
-		$users = $user->all();
-		$data = [
-			'title' => 'Home',
-			'users' => $users
-		];
-		$this->view->loadView('home/index', $data);
+		$factory = new PakistaniFactory();
+        $result = $factory->create(FactoryMethod::FAST, 'red');
+
+        var_dump($result);
+		
+		// $this->view->loadView('home/index');
 	}
 }
