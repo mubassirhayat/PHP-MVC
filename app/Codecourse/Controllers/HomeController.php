@@ -3,9 +3,7 @@ namespace Codecourse\Controllers;
 
 use Codecourse\Library\Controller;
 use Codecourse\Models\User;
-use Codecourse\DesignPatterns\FactoryMethod\FactoryMethod;
-use Codecourse\DesignPatterns\FactoryMethod\PakistaniFactory;
-use Codecourse\DesignPatterns\FactoryMethod\GermanFactory;
+use Codecourse\DesignPatterns\Singleton\Singleton;
 
 class HomeController extends Controller
 {
@@ -17,11 +15,18 @@ class HomeController extends Controller
 
 	public function index($params = NULL)
 	{
-		$factory = new PakistaniFactory();
-        $result = $factory->create(FactoryMethod::FAST, 'red');
+		$s1 = Singleton::getInstance();
+		var_dump($s1);
 
-        var_dump($result);
-		
+		$s2 = Singleton::getInstance();
+		var_dump($s2);
+
+		$s3 = Singleton::getInstance();
+		var_dump($s3);
+
+		$s4 = Singleton::getInstance();
+		var_dump($s4);
+        
 		// $this->view->loadView('home/index');
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 namespace Codecourse\DesignPatterns\FactoryMethod;
 
-interface VehicleInterface
+interface Vehicle
 {
     public function setColor($rgb);
 }
